@@ -1,4 +1,4 @@
-// Part 1: Earthquake Visualization
+// Earthquake Visualization
 
 const earthquakeData = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
 
@@ -19,10 +19,9 @@ function getColor(depth) {
         depth > 0 ? '#ADFF2F' :
                      '#00FF00';
 }
-    // Fetch earthquake data and convert it to GeoJSON
-  fetch(earthquakeData)
-  .then(response => response.json()) // Parse the response as JSON
-  .then(data => {
+    // Fetch earthquake data
+  d3.json(earthquakeData)
+  .then(data =>{ 
 
     // Loop through each feature in the GeoJSON data and extract latitude, longitude, depth, and magnitude
     data.features.forEach(feature => {
